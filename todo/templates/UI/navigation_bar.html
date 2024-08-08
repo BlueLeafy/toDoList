@@ -1,0 +1,53 @@
+{% block navBar %}
+<nav id="navBar" class="navbar-expand-lg p-2">
+    <a class="navbar-brand" href="/">ToDO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        {% if session["user_id"] %}
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/"><i class="fa-solid fa-square-check fa-xl" title="Task"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa-solid fa-calendar-days fa-xl"
+                        title="Calendar View"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa-solid fa-dice-d20 fa-xl"
+                        title="Eisenhower Matrix"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa-solid fa-poo fa-xl" title="Habit"></i></a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/profile">
+                    <i class="fa-solid fa-circle-user fa-xl" title="Profile"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">
+                    <i class="fa-solid fa-right-from-bracket fa-xl" title="Log Out"></i>
+                </a>
+            </li>
+        </ul>
+        {% else %}
+        <ul class="navbar-nav h-25">
+            <li class="nav-item">
+                <a class="nav-link" href="/register"><i class="fa-solid fa-pen-to-square fa-xl"
+                        title="Register"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login"><i class="fa-solid fa-right-to-bracket fa-xl"
+                        title="Log In"></i></a>
+            </li>
+        </ul>
+        {% endif %}
+    </div>
+</nav>
+
+{% endblock %}

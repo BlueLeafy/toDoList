@@ -1,0 +1,75 @@
+{% block navTask %}
+<nav id="navTask" class="border-right">
+    <!-- navTaskTop -->
+    <div class=" w-100" id="navTaskTop">
+        <!-- I want to show how many elemt are in the tab -->
+        <ul class="border-bottom">
+            {% for list_id in predefined_list_ids %}
+            <li class="navTask-item w-100">
+                <a class="navTask-link" href="" data-listid="{{ list_id }}">
+                    {% if list_id == 1 %}
+                        <i class="fa-solid fa-calendar"></i>
+                        Today
+                    {% elif list_id == 2 %}
+                        <i class="fa-solid fa-calendar-week"></i>
+                        Next 7 Days
+                    {% endif %}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!-- END navTaskTop -->
+
+    <!-- Lists that user can create -->
+    <!-- navTaskBottom -->
+    <div class="w-100" id="navTaskBottom">
+        <!-- create new list -->
+        <div class="mt-2 pl-2 d-flex justify-content-between align-items-center">
+            <p class="m-0">Lists</p>
+            <!-- MODAL TOGGLE -->
+            <button type="button" class="btn" data-toggle="modal" data-target="#newListModal">
+                <i class="fa-solid fa-plus fa-2xs"></i>
+            </button>
+        </div>
+
+        <!-- template flask -->
+        {% for folder in folders %}
+        <div class="accordion">
+            <!-- condition if the folder given or single list -->
+            <div class="accordion-toggle">
+                <p class="mb-0"><a class="navTask-link"><i class="fa-regular fa-folder-closed" style="width: 20px;"></i>
+                        {{ folder['folder_name'] }}</a>
+                </p>
+            </div>
+            <ul class="accordion-menu">
+                {% for list in lists %}
+                {% if list['folder_id'] == folder['folder_id'] %}
+                <li class="accordion-item"><a class="navTask-link" href="" data-listid="{{ list['list_id'] }}"><i
+                            class="fa-solid fa-bars"></i> {{ list['list_name']}}</a></li>
+                {% endif %}
+                {% endfor %}
+                <li class="accordion-item"><a class="navTask-link" href=""><i class="fa-solid fa-bars"></i> Show all</a>
+                </li>
+            </ul>
+        </div>
+        {% endfor %}
+
+        <!-- Display list item without folder -->
+        {% for list in lists %}
+        {% if not list['folder_id'] %}
+        <ul class="singleList-item">
+            <li class="navTask-item">
+                <a href="" class="navTask-link" data-listid="{{ list['list_id'] }}">
+                    <i class="fa-solid fa-bars"></i>
+                    {{ list['list_name'] }}
+                </a>
+            </li>
+        </ul>
+        {% endif %}
+        {% endfor %}
+        <!-- template flask end -->
+    </div>
+    <!-- END navTaskBottom -->
+</nav>
+{% endblock %}

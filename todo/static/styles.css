@@ -1,0 +1,564 @@
+/* KEYFRAMES */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0,-20px,0);
+        transform: translate3d(0,-20px,0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+}
+
+:root {
+    /* COLORS RGB */
+    --black: 0, 0, 0;
+    --white: 255, 255, 255;
+    --light-01: 249, 249, 249;
+    --gray-01: 108, 117, 125;
+    --dark-01: 26, 26, 26;
+    --dark-02: 16, 16, 16;
+    --dark-03: 39, 39, 39;
+    --dark-04: 51, 51, 51;
+    --blue-01: 0, 123, 255;
+    --red-01: 220, 53, 69;
+}
+
+/* HMTL AND RESET */
+html {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(var(--dark-01));
+    height: 100vh;
+    overflow: hidden;
+}
+
+#body-container {
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* NAVBAR */
+#navBar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 66px;
+    height: 100%;
+    background-color: rgb(var(--black));
+}
+
+.navbar-brand {
+    margin-right: 0;
+}
+
+.navbar {
+    flex-direction: column;
+}
+
+#navbarNav {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+}
+
+.navbar-nav,
+.navbar-expand-lg {
+    flex-direction: column !important;
+}
+
+.nav-link {
+    color: rgb(var(--gray-01));
+}
+
+/* LOGIN and REGISTRATION FORM */
+.form-wrapper {
+    background: rgba(var(--dark-02));
+    border: 1px solid rgba(var(--dark-03));
+    color: rgba(var(--white));
+    padding: 40px 30px;
+    max-width: 550px;
+    margin: 90px auto 0 auto;
+}
+
+.form-wrapper h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 50px;
+    color: rgb(var(--white));
+}
+
+.form .form-group label {
+    margin-bottom: 0.35rem;
+}
+
+.form .input-group-prepend,
+.form .input-group-text,
+.form .input-group input.form-control {
+    color: rgb(var(--white));
+    font-size: 16px;
+}
+
+.form .input-group-prepend,
+.form .input-group input.form-control {
+    padding: 15px 16px;
+    height: 50px;
+    border: 1px solid rgb(var(--dark-04));
+    border-radius: 8px;
+}
+
+.form .input-group-prepend, 
+.form .input-group-text {
+    background: rgb(var(--dark-02));
+    color: #6c757d;
+}
+
+.form .input-group-prepend {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.form .input-group input.form-control {
+    background: rgb(var(--dark-03));
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+}
+
+.form .input-group-text {
+    border: none;
+}
+
+.form .form-group input.form-control,
+.form .form-group select.form-control {
+    background: rgb(var(--dark-03));
+    border: 1px solid rgb(var(--dark-04));
+    color: rgb(var(--white));
+    padding: 15px 16px;
+    font-size: 16px;
+    height: 50px;
+    border-radius: 8px;
+}
+
+.form button[type="submit"] {
+    margin-top: 2.5rem;
+    height: 50px;
+}
+
+.login-options {
+    margin-top: 30px;
+}
+
+
+/* NAVTASK */
+#navTask {
+    margin-left: 66px;
+    overflow-x: hidden;
+    width: 275px;
+    padding: 0 1rem;
+}
+
+#navTaskTop ul,
+#navTaskBottom ul {
+    list-style-type: none;
+    height: 100%;
+    margin-bottom: 0;
+}
+
+#navTaskTop ul{
+    padding-left: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* MODAL */
+.modal-toggle {
+    border: none;
+    outline: none;
+    background-color: rgba(var(--black), 0);
+    color: rgb(var(--white));
+    width: 25px;
+    height: 25px;
+}
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin-top: 0;
+}
+
+.modal-content {
+    background-color: rgb(var(--dark-01));
+    color: rgb(var(--white));
+    border: .05rem solid rgb(var(--dark-03));
+    box-shadow: 0 0px 10px rgba(44, 44, 44, 0.5);
+}
+
+.modal-header, .modal-footer {
+    border-color: rgb(var(--dark-03));
+}
+
+/* ACCORDION */
+.accordion-toggle:hover {
+    cursor: pointer;
+}
+.accordion-menu {
+    display: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: .75rem;
+}
+.accordion-toggle.active + .accordion-menu {
+    /* Add your styles for the active state here */
+    display: block;
+}
+
+.singleList-item {
+    padding: 0;
+}
+.singleList-item li {
+    padding: 8px 10px;
+}
+
+.navTask-link,
+.accordion-toggle,
+#navTaskBottom p,
+#navTaskBottom i {
+    color: rgb(var(--white));
+}
+
+.accordion-toggle,
+.navTask-item,
+.accordion-item {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    text-wrap: nowrap;
+}
+
+.accordion-toggle:hover,
+.navTask-item:hover,
+.accordion-item:hover {
+    background-color: rgba(var(--white), 0.1);
+}
+.navTask-link {
+    display: block;
+    width: 100%;
+}
+.navTask-link:hover {
+    color: rgb(var(--white));
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* NEW TASK FORM */
+#newTaskForm {
+    border-radius: 0.25rem;
+}
+
+#newTaskForm:focus {
+    box-shadow: 0 0 0 .2rem rgba(var(--blue-01), .25);
+}
+
+#newTaskForm input {
+    background-color: rgba(var(--white), 0);
+    border: none;
+}
+
+#newTaskForm input:focus {
+    box-shadow: none;
+}
+
+/* text input field */
+#newTask {
+    width: 73%;
+}
+
+/* DATETIME PICKERS */
+.calendar-wrapper {
+    width: 25%;
+}
+
+.calendar-wrapper {
+    border-radius: 0;
+    position: relative;
+}
+
+.calendar-wrapper i {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: rgb(var(--white));
+}
+
+.calendar-wrapper input {
+    width: 100%;
+}
+
+.flatpickr-calendar, .flatpickr-months .flatpickr-month, .flatpickr-current-month .flatpickr-monthDropdown-months, .flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month, span.flatpickr-weekday {
+    background-color: rgb(var(--dark-01));
+}
+.flatpickr-calendar, .flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month {
+    border: 1px solid rgb(var(--light-01));
+    -webkit-border: 1px solid rgb(var(--light-01));
+    -moz-border: 1px solid rgb(var(--light-01));
+    -ms-border: 1px solid rgb(var(--light-01));
+}
+
+
+/* DATE PICKER DROPDOWN */
+/* Dropdown styles */
+.time-picker {
+    position: relative;
+    width: 100%;
+}
+
+/* Toggle button styles */
+#timePickerToggle {
+    cursor: pointer;
+    color: rgb(var(--white));
+    padding: 15px 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#timePickerToggle:hover{
+    background-color: #646c8c;
+}
+
+/* Dropdown content styles */
+#timeDropdown {
+    background: transparent;
+    opacity: 0;
+    display: none;
+    visibility: hidden;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    position: absolute;
+    width: 307.875px;
+    box-sizing: border-box;
+    touch-action: manipulation;
+    top: 100%;
+    left: 0;
+    background-color: rgb(63, 68, 88);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+#timeDropdown.active {
+    display: block;
+    opacity: 1;
+    max-height: 300px;
+    visibility: visible;
+    overflow-y: scroll;
+}
+
+/* Individual dropdown item styles */
+.time-option {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: rgb(var(--white));
+}
+
+.time-option:hover {
+    outline: 0;
+    background-color: #646c8c;
+}
+
+/* style the FLATPICKR inputs */
+#newTaskForm input[readonly] {
+    border-radius: 0;
+}
+
+#newTaskForm input[readonly]:last-child {
+    width: 10%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    text-align: center;
+}
+
+/* TASKS ITEM */
+.list-group-item {
+    border: none;
+}
+
+.taskItem {
+    background-color: (var(--dark-01));
+    border-radius: .25rem;
+    color: rgb(var(--light-01));
+}
+
+/* CUSTOM CHECKBOX FOR COMPLETED TASK */
+.completedTask {
+    opacity: 1;
+}
+
+/* customise label */
+.check-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    width: 25px;
+    height: 25px;
+    margin-bottom: 0;
+
+}
+
+/* hide defult checkbox */
+.check-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(var(--dark-01));
+    border: 2px solid rgb(var(--dark-04));
+    border-radius: 4px;
+}
+
+/* on mouse over */
+.check-container:hover input~.checkmark {
+    background-color: rgb(var(--dark-03));
+}
+
+/* when is checked */
+.check-container input:checked~.checkmark {
+    background-color: rgb(var(--dark-04));
+}
+
+/* create checkmark */
+.checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+/* show checkmark when checked */
+.check-container input~.checkmark:after {
+    display: block;
+}
+
+
+/* style checkmark */
+.check-container .checkmark:after {
+    left: 8px;
+    top: 2px;
+    width: 6px;
+    height: 14px;
+    border: solid rgb(var(--dark-01));
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* on mouse over */
+.check-container:hover .checkmark:after {
+    left: 8px;
+    top: 2px;
+    width: 6px;
+    height: 14px;
+    border: solid rgb(var(--dark-04));
+    border-width: 0 3px 3px 0;
+}
+
+/* when is checked */
+.check-container input:checked~.checkmark:after {
+    left: 8px;
+    top: 2px;
+    width: 6px;
+    height: 14px;
+    border: solid rgb(var(--dark-01));
+    border-width: 0 3px 3px 0;
+}
+
+/* call animation on completed task */
+.fade-out {
+    animation: fadeOut 0.5s ease forwards;
+}
+
+/* EDIT TASK */
+.task-description {
+    white-space: pre-wrap;
+}
+
+.task-description[contenteditable]:focus {
+    border: none;
+    outline: none;
+    white-space: pre-wrap;
+}
+
+/* DUE DATETIME */
+.due-datetime {
+    color: rgb(var(--white));
+}
+
+.past-due {
+    color: rgb(var(--red-01));
+}
+
+.future-due {
+    color: rgb(var(--blue-01));
+}
+
+/* DELETE TASK BUTTON */
+.deleteBtn {
+    color: rgb(var(--gray-01));
+}
+
+.deleteBtn:hover {
+    color: rgb(var(--white));
+}
+
+/* DETAILS TASK */
+.task-detail-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.editable-detail-text {
+    font-size: 14px;
+    white-space: pre-wrap;
+}
+
+.editable-detail-text[contenteditable]:focus {
+    border: none;
+    outline: none;
+}
+
+/* UTILITIES CLASSES */
+.showBlock {
+    display: block;
+}
+

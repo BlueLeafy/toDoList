@@ -1,0 +1,42 @@
+{% block newListModal %}
+<div class="modal fade" id="newListModal" tabindex="-1" aria-labelledby="newListModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <h5 class="modal-title font-weight-bold" id="newListModalLabel">Add List</h5>
+            </div>
+            <div class="modal-body">
+                <form action="/new_list" class="form" method="post" id="newListForm">
+                    <!-- I want to add emoji optional -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Name</span>
+                        </div>
+                        <input type="text" aria-label="nameList" name="nameList" id="nameList" class="form-control">
+                    </div>
+
+                    <div class="form-group row ml-0">
+                        <label for="folder" class="col-sm-2 col-form-label">Folder</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="folderId" id="folderId">
+                                <option value="0" selected>None</option>
+                                {% for folder in folders %}
+                                <option value="{{ folder['folder_id'] }}">{{ folder['folder_name'] }}</option>
+                                {% endfor %}
+                                <option value="new" data-toggle="modal" data-target="#newFolderModal">New folder
+                                    create</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary" id="listSubmitBtn">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

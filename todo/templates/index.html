@@ -1,0 +1,66 @@
+{% extends "layouts/layout.html" %}
+
+{% block title %}
+    {% for user in users %}
+        {{ user['username'] }}
+    {% endfor %}
+{% endblock %}
+
+{% block head %}
+    <!-- DATETIME PICKER  -->
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+{% endblock %}
+
+{% block main %}
+<!-- nav task option -->
+    {% block navTask %}
+        {% include 'tasks_components/nav_task.html' %}
+    {% endblock %}
+<!-- END nav task option -->
+
+<!-- MAIN TASKS DIV -->
+    <div class="w-75 h-100 pl-5 pr-5 pt-4" style="border-right: 1px solid #212121;">
+        <!-- LIST TITLE -->
+        <div class="taskList-title text-white" id="listTitle">
+        </div>
+        <!-- END LIST TITLE -->
+
+        <!-- NEW TASK FORM -->
+            {% block newTaskForm %}
+                {% include 'tasks_components/new_task_form.html' %}
+            {% endblock %}
+        <!-- END NEW TASK FORM -->
+            
+        <!-- TASKS DASHBOARD -->
+            {% block tasksDashboard %}
+                {% include 'tasks_components/tasks_dashboard.html' %}
+            {% endblock %}
+        <!-- END TASKS DASHBOARD -->
+    </div>
+<!-- END MAIN TASKS tab -->
+
+
+<!-- DETAILS DETAILS TAB -->
+    {% block task_details %}
+        {% include 'tasks_components/task_details.html' %}
+    {% endblock %}
+<!-- END DETAILS DETAILS TAB -->
+
+{% endblock %}
+
+{% block body %}
+<!-- Modal create new list -->
+    {% block newListModal %}
+        {% include 'tasks_components/new_list_modal.html' %}
+    {% endblock %}
+<!-- END Modal create new list -->
+
+<!-- Modal create new folder -->
+    {% block newFolderModal %}
+        {% include 'tasks_components/new_folder_modal.html' %}
+    {% endblock %}
+<!-- END Modal create new folder -->
+
+
+{% endblock %}
