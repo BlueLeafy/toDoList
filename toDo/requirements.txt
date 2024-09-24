@@ -1,0 +1,4 @@
+Flask==2.3.3
+Flask-Session==0.4.0
+Werkzeug==2.3.3
+SQLite==3.36.0
