@@ -1,0 +1,40 @@
+{% block newTaskForm %}
+<div class="mt-4">
+    <div class="w-100">
+        <form action="/new_task" method="post" id="newTaskForm" class="d-flex bg-dark">
+            <!-- text filed input -->
+            <input type="text" id="newTask" name="new_task" placeholder="+ Add task to Inbox"
+                class="form-control text-white" autocomplete="off">
+            <!-- datetime picker input -->
+            <div class="calendar-wrapper">
+                <input type="date" id="newTaskDate" name="new_task_date" class="text-white form-control"
+                    autocomplete="off">
+                <i class="fa-regular fa-calendar" id="calendarToggle"></i>
+
+                <!-- timePickerToggle here -->
+            </div>
+            <!-- Hidden input field to store the time -->
+            <input type="hidden" name="new_task_time" id="newTaskTime">
+            <!-- Hidden input field to store the list ID -->
+            <input type="hidden" name="list_id" value="{{ selected_list_id }}" id="selectedListId">
+        </form>
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+
+<!-- Time picker input 
+<div class="time-picker">
+    <div class="h-100">
+        <p id="timePickerToggle" class="mb-0">Set the time</p>
+    </div>
+    <div id="timeDropdown" class="dropdown-content arrow-top">
+        <a href="#" class="time-option" data-time="01:00">1:00 am</a>
+        <a href="#" class="time-option" data-time="02:00">2:00 am</a>
+    </div>
+</div> -->
